@@ -31,24 +31,30 @@ def check_string_input(input):
         return 1
 
 
-
-# will take in a name as a string and then print that name back on console
-user_name = input("Please enter your name: ")
-print("You have a cool name " + user_name + ".")
-# In my opinion names can have numbers ( elon musk's kid)
-print("------------------")
-
-# will ask the user for an int and them * it by itself and then print to console
-mult_num = input("Please enter a integer number: ")
-if check_input_int(mult_num) == 0:
-    print(mult_num, " * ", mult_num)
-    print("Result:", int(mult_num) * int(mult_num))
+def mod2():
+    # will take in a name as a string and then print that name back on console
+    user_name = input("Please enter your name: ")
+    print("You have a cool name " + user_name + ".")
+    # In my opinion names can have numbers ( elon musk's kid)
     print("------------------")
 
+    # will ask the user for an int and them * it by itself and then print to console
+    mult_num = input("Please enter a integer number: ")
+    if check_input_int(mult_num) == 0:
+        print(mult_num, " * ", mult_num)
+        print("Result:", int(mult_num) * int(mult_num))
+        print("------------------")
 
-#asks user for a word, counts num of letters, and then prints
-user_word = input("Please enter a word: ")
-if check_string_input(user_word) == 0:
-    length_of_word = len(user_word)
-    print("Your word is " + str(length_of_word) + " letters long.")
-    print("------------------")
+    # asks user for a word, counts num of letters, and then prints
+    user_word = input("Please enter a word: ")
+    if check_string_input(user_word) == 0:
+        length_of_word = len(user_word)
+        print("Your word is " + str(length_of_word) + " letters long.")
+        print("------------------")
+
+
+if __name__ == '__main__':
+    mod2()
+else:
+    print("sorry couldn't run main")
+
