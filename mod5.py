@@ -42,3 +42,22 @@ if session == 2:
     print("standard deviation is", statistics.stdev(mylist))
 
 #3
+if session == 3:
+    usr_str = input("Enter a string: ")
+    print()
+    if usr_str.isalnum() == True:
+        print("Your string has all alphanumeric characters.")
+    else:
+        print("Your string is not all alphanumeric characters.")
+    print()
+    fin = usr_str.find("a")
+    if fin != -1:
+        print("Your string has an 'a' in it at index", fin)
+    else:
+        print("Your string does not have an 'a' in it.")
+    print()
+    cnt = usr_str.count("I")
+    if cnt > 0:
+        print("You said 'I'", cnt, "time(s) in your string.")
+    else:
+        print("You did not say 'I' in your string.")
