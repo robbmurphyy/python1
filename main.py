@@ -49,10 +49,41 @@ def pigLatin():
 
     print(translatedString)
 
+#-----------------------------------------------------------------------------------------------
+def breakUp1():
+    word4 = input("Please enter a sentence with no digits: ")
+    for letter in word4:
+        torf = letter.isdigit()
+        if torf == True:
+            print("You entered a sentence with digits, that's not allowed.")
+            break
+    punct = ["\'", "!", "?", ".", ",", "\"", ":", ";"]
+    list3 = list(word4)
+    for x in list3:
+        if x.isspace():
+            print()
+        elif x.isalpha():
+            print(x, end="")
+        elif x in punct:
+            print(x, end="")
+
+
+#------------------------------------------------------------------------------------------------
+def breakUp2():
+    word5 = input("Please enter a sentence with no digits: ")
+    for letter in word5:
+        torf = letter.isdigit()
+        if torf == True:
+            print("You entered a sentence with digits, that's not allowed.")
+            break
+    list2 = word5.split(' ')
+    for x in list2:
+        print(x)
+
 #----------------------------------------------------------------------------------------------
 argList = sys.argv[1:]
-options = "ampn:"
-longOptions = ["asciiBump", "minMax", "pigLatin"]
+options = "ampbsn:"
+longOptions = ["asciiBump", "minMax", "pigLatin", "breakUp", "breakUp2"]
 try:
     arguments, values = getopt.getopt(argList, options, longOptions)
 
@@ -63,9 +94,12 @@ try:
             minMax()
         elif currentArg in ("-p", "--piglatin"):
             pigLatin()
-
+        elif currentArg in ("-b", "--breakUp1"):
+            breakUp1()
+        elif currentArg in ("-s", "--BreakUp2"):
+            breakUp2()
 except getopt.error as err:
     print("Wrong args. Enter -a or --asciiBump for asciiBump(). -m or --minMax for minMax().")
-    print("-p or --pigLatin for pigLatin()")
+    print("-p or --pigLatin for pigLatin(). -b or --breakUp1 for breakup1(). -s or --breakUp2 for breakUp2()")
 
 
