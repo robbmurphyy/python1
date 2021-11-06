@@ -43,7 +43,7 @@ try:
         if currentArg in ("-r", "--regex"):
             regexSearch()
 except getopt.error as err:
-    print("Wrong args. Enter -a or --asciiBump for asciiBump(). -m or --minMax for minMax().")
-    print("-p or --pigLatin for pigLatin(). -b or --breakUp1 for breakup1(). -s or --breakUp2 for breakUp2()")
+    print("Wrong args. Enter -r or --regex for regexSearch()")
+
 
 
