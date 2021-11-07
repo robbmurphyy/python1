@@ -19,7 +19,7 @@ def regexSearch():
     print(pattern1.findall(str(os.environ)))
 
     #will print out how many .py files there are in the directory
-
+    print("----------------------------------------------------------------------------")
     pattern2 = re.compile("\.py")
     length = len(pattern2.findall(str(os.listdir())))
     x = os.getcwd()
@@ -27,7 +27,6 @@ def regexSearch():
     # print(pattern2.search(str(os.listdir())))
     print("The full contents of the directory are:")
     print(os.listdir())
-    print()
     print("----------------------------------------------------------------------------")
 
 
