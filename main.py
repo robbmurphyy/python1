@@ -1,48 +1,86 @@
-# Author: Robert Murphy
-# Date: 11/6/21
-# Purpose:  assignment 7 regex
+# # Author: Robert Murphy
+# # Date: 11/6/21
+# # Purpose:  assignment 8 oop
 
-import sys
-import getopt
-import re
-import os
+class Bird:
+    def __init__(self, title):
+        self.name = title
 
-#----------------------------------------------------------------------------------------------
-#using regex to search output of os module
-def regexSearch():
+    def color(self, color1, color2):
+        self.color = color1
+        self.second_color = color2
 
-    #prints out any path in $PATH where it goes to C:\Users\Robert Murphy
-    print("----------------------------------------------------------------------------")
-    pattern1 = re.compile('Robert\sMurphy')
-    length1 = len(pattern1.findall(str(os.environ)))
-    print("Within the environment path variable, \"Robert Murphy\" is mentioned", length1, "times.")
-    print(pattern1.findall(str(os.environ)))
+    def Wingspan(self, wingspan_cm):
+        self.wingspan = wingspan_cm
 
-    #will print out how many .py files there are in the directory
-    print("----------------------------------------------------------------------------")
-    pattern2 = re.compile("\.py")
-    length = len(pattern2.findall(str(os.listdir())))
-    x = os.getcwd()
-    print("In", x, "there are", length, "python files:", pattern2.findall(str(os.listdir())))
-    # print(pattern2.search(str(os.listdir())))
-    print("The full contents of the directory are:")
-    print(os.listdir())
-    print("----------------------------------------------------------------------------")
+    def BirdType(self, species):
+        self.type = species
+
+    def BirdSex(self, MorF):
+        self.sex = MorF
+
+def morfcheck(sex):
+    y = False
+    list = ['m', 'f']
+    if sex in list:
+        y = True
+    return y
+
+# def colorcheck(first, sec):
+#     x = 0
+#     colorlist = ["red", "orange", "yellow", "green", "blue", "indigo", "violet", "brown", "white", "black"]
+#     for u in range(10):
+#         if first.lower() is colorlist[u] and sec.lower() is colorlist[u]:
+#                 print(u)
+#                 x= 1
+#                 print("Hi", x)
+#                 break
+#         else:
+#             x= 0
+#     if x == 1:
+#         return True
+#     else:
+#         return False
+
+if __name__ == '__main__':
+    print("Please enter the characteristics for each bird!")
+    print("Bird #1")
+    name = input("Name: ")
+    bird1 = Bird(name)
+
+    print("You can only enter these colors. red, orange, yellow, green, blue, indigo, violet, brown, white, black")
+    bird1.color(input("Primary color: "), input("Second color: "))
+    bird1.Wingspan(int(input("Wing Span in cm: ")))
+    bird1.BirdType(input("Type of Bird: "))
+    bird1.BirdSex(input("Is it a male or female bird (M or F): "))
+    print("Thanks")
+    print("----------------------------")
+    print("Bird #2")
+    namee = input("Name: ")
+    bird2 = Bird(namee)
+    print()
 
 
+    print("You can only enter these colors. red, orange, yellow, green, blue, indigo, violet, brown, white, black")
+    bird2.color(input("Primary color: "), input("Second color: "))
+    bird2.Wingspan(int(input("Wing Span in cm: ")))
+    bird2.BirdType(input("Type of Bird: "))
+    bird2.BirdSex(input("Is it a male or female bird (M or F): "))
+    print("----------------------------------")
+    print("Thanks. Here are your birds.")
+    print("----------------------------------")
+    print("Bird 1's attributes are: ")
+    print(bird1.__dict__)
+    print()
+    print("Bird 2's attributes are")
+    print(bird2.__dict__)
 
-#----------------------------------------------------------------------------------------------
-argList = sys.argv[1:]
-options = "r"
-longOptions = ["regex"]
-try:
-    arguments, values = getopt.getopt(argList, options, longOptions)
-
-    for currentArg, currentVal in arguments:
-        if currentArg in ("-r", "--regex"):
-            regexSearch()
-except getopt.error as err:
-    print("Wrong args. Enter -r or --regex for regexSearch()")
+    deez = (dir(Bird))
+    print()
+    print("The methods each bird share are: ")
+    for x in deez:
+        if x[0] != '_':
+            print(x)
 
 
-
+print("-----------------------------------")
