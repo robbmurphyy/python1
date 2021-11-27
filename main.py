@@ -26,29 +26,12 @@ def morfcheck(sex):
         y = True
     return y
 
-# def colorcheck(first, sec):
-#     x = 0
-#     colorlist = ["red", "orange", "yellow", "green", "blue", "indigo", "violet", "brown", "white", "black"]
-#     for u in range(10):
-#         if first.lower() is colorlist[u] and sec.lower() is colorlist[u]:
-#                 print(u)
-#                 x= 1
-#                 print("Hi", x)
-#                 break
-#         else:
-#             x= 0
-#     if x == 1:
-#         return True
-#     else:
-#         return False
-
 if __name__ == '__main__':
     print("Please enter the characteristics for each bird!")
     print("Bird #1")
     name = input("Name: ")
     bird1 = Bird(name)
 
-    print("You can only enter these colors. red, orange, yellow, green, blue, indigo, violet, brown, white, black")
     bird1.color(input("Primary color: "), input("Second color: "))
     bird1.Wingspan(int(input("Wing Span in cm: ")))
     bird1.BirdType(input("Type of Bird: "))
@@ -59,7 +42,6 @@ if __name__ == '__main__':
     namee = input("Name: ")
     bird2 = Bird(namee)
     print()
-
 
     print("You can only enter these colors. red, orange, yellow, green, blue, indigo, violet, brown, white, black")
     bird2.color(input("Primary color: "), input("Second color: "))
